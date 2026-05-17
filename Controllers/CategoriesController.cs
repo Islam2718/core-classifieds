@@ -67,8 +67,6 @@ namespace SimpleEcoms.Controllers
                 {
                     Id = p.Id,
                     Name = p.Name,
-                    Price = p.Price,
-                    StockQuantity = p.StockQuantity
                 }).ToList()
             };
             
@@ -171,9 +169,7 @@ namespace SimpleEcoms.Controllers
                 Products = updatedCategory?.Products.Select(p => new BasicProductInfoDto
                 {
                     Id = p.Id,
-                    Name = p.Name,
-                    Price = p.Price,
-                    StockQuantity = p.StockQuantity
+                    Name = p.Name,                    
                 }).ToList() ?? new List<BasicProductInfoDto>()
             };
             

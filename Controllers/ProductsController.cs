@@ -29,8 +29,6 @@ namespace SimpleEcoms.Controllers
                     Id = p.Id,
                     Name = p.Name,
                     Description = p.Description,
-                    Price = p.Price,
-                    StockQuantity = p.StockQuantity,
                     ImageUrl = p.ImageUrl,
                     CategoryName = p.Category != null ? p.Category.Name : ""
                 })
@@ -55,8 +53,6 @@ namespace SimpleEcoms.Controllers
                 Id = product.Id,
                 Name = product.Name,
                 Description = product.Description,
-                Price = product.Price,
-                StockQuantity = product.StockQuantity,
                 ImageUrl = product.ImageUrl,
                 CategoryName = product.Category?.Name ?? ""
             };
@@ -73,8 +69,6 @@ namespace SimpleEcoms.Controllers
             {
                 Name = productDto.Name,
                 Description = productDto.Description,
-                Price = productDto.Price,
-                StockQuantity = productDto.StockQuantity,
                 ImageUrl = productDto.ImageUrl,
                 CategoryId = productDto.CategoryId
             };

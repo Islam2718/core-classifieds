@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SimpleEcomsApi")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+213059c9d292fcde2a81ce02668c55dbece5535e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0b5000eb076934dc3468f60687d667b7fe598034")]
 [assembly: System.Reflection.AssemblyProductAttribute("SimpleEcomsApi")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SimpleEcomsApi")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

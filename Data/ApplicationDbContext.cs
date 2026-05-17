@@ -11,6 +11,7 @@ namespace SimpleEcoms.Data
         }
         
         public DbSet<User> Users { get; set; }
+        public DbSet<Store> Stores { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Order> Orders { get; set; }
@@ -20,8 +21,14 @@ namespace SimpleEcoms.Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            
-            // Configure relationships
+            // Configure relationships between User and Store
+            modelBuilder.Entity<Store>()
+                .HasOne(s => s.User)
+                .WithMany(u => u.Stores)
+                .HasForeignKey(s => s.UserId)
+                .OnDelete(DeleteBehavior.Cascade);            
+
+            // Configure relationships between Product, Category, Order, OrderItem, and Payment
             modelBuilder.Entity<Product>()
                 .HasOne(p => p.Category)
                 .WithMany(c => c.Products)
@@ -41,10 +48,10 @@ namespace SimpleEcoms.Data
                 .OnDelete(DeleteBehavior.Cascade);
             
             modelBuilder.Entity<OrderItem>()
-                .HasOne(oi => oi.Product)
-                .WithMany(p => p.OrderItems)
-                .HasForeignKey(oi => oi.ProductId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .HasOne(oi => oi.Product);
+                // .WithMany(p => p.OrderItems)
+                // .HasForeignKey(oi => oi.ProductId)
+                // .OnDelete(DeleteBehavior.Restrict);
             
             modelBuilder.Entity<Payment>()
                 .HasOne(p => p.Order)

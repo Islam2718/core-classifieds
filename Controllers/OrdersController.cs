@@ -101,21 +101,21 @@ namespace SimpleEcoms.Controllers
                 if (product == null)
                     return BadRequest($"Product with ID {item.ProductId} not found");
                     
-                if (product.StockQuantity < item.Quantity)
-                    return BadRequest($"Insufficient stock for product {product.Name}");
+                // if (product.StockQuantity < item.Quantity)
+                //     return BadRequest($"Insufficient stock for product {product.Name}");
                     
                 var orderItem = new OrderItem
                 {
                     ProductId = item.ProductId,
-                    Quantity = item.Quantity,
-                    UnitPrice = product.Price
+                    // Quantity = item.Quantity,
+                    // UnitPrice = product.Price
                 };
                 
-                totalAmount += product.Price * item.Quantity;
+                // totalAmount += product.Price * item.Quantity;
                 orderItems.Add(orderItem);
                 
                 // Update stock
-                product.StockQuantity -= item.Quantity;
+                // product.StockQuantity -= item.Quantity;
             }
             
             var order = new Order
@@ -157,8 +157,8 @@ namespace SimpleEcoms.Controllers
             foreach (var item in orderItems)
             {
                 var product = await _context.Products.FindAsync(item.ProductId);
-                if (product != null)
-                    product.StockQuantity += item.Quantity;
+                // if (product != null)
+                //     product.StockQuantity += item.Quantity;
             }
             
             await _context.SaveChangesAsync();
