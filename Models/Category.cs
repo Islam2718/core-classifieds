@@ -7,7 +7,9 @@ namespace SimpleEcoms.Models
     {
         [Key]
         public int Id { get; set; }
-        
+
+        public int? ParentId { get; set; } = null;
+
         [Required]
         [StringLength(100)]
         public string Name { get; set; } = string.Empty;

@@ -14,14 +14,14 @@ namespace SimpleEcoms.Models
         public string Description { get; set; } = string.Empty;
 
         public string ImageUrl { get; set; } = string.Empty;
-        
+
         // Foreign Key
         public int CategoryId { get; set; }        
         [JsonIgnore]
         public Category? Category { get; set; }
 
-        public int CompanyId { get; set; }
+        public int StoreId { get; set; }
         [JsonIgnore]
-        public Company? Company { get; set; }        
+        public Store? Store { get; set; }
     }
 }
